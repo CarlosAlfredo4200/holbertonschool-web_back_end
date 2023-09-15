@@ -8,9 +8,16 @@ class Building {
   }
 
   evacuationWarningMessage() {
-    
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
 
 export default Building;
+
+class TestBuilding extends Building {}
+
+test('building forces override', () => {
+  expect(() => {
+    new TestBuilding(200).evacuationWarningMessage();
+  }).toThrow('Class extending Building must override evacuationWarningMessage');
+});
