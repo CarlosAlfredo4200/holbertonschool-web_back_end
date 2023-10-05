@@ -8,12 +8,10 @@ function getListStudents() {
   
 
 
-function getStudentsByLocation(arr, search) {
-    return arr.filter((el) => el.location === search )
+function getStudentIdsSum(arr) {
+    return arr.reduce((acc, item) => acc + item.id, 0)
 }
 
-
-
 const students = getListStudents();
-
-console.log(getStudentsByLocation(students, 'San Francisco' ));
+const value = getStudentIdsSum(students);
+console.log(value);
